@@ -1,31 +1,22 @@
-CROSS_COMPILE=
-
 ifeq ($(CC),)
-	CC=$(CROSS_COMPILE)gcc
+	CC = $(CROSS_COMPILE)gcc
+endif
+ifeq ($CFLAGS),)
+	CFLAGS = -g -Wall -Werror
 endif
 
-ifeq ($(CFLAGS),)
-	CFLAGS= -g -Wall -Werror
+ifeq ($(INCLUDES),)
+	INCLUDES = -I/
 endif
 
-ifeq ($(LDFLAGS),)
-	LDFLAGS= -lgpiod
-endif
+all: read
 
-all: readtest writetest 
-default: readtest writetest
+read.o: read.c
+	$(CC) $(CFLAGS) -c read.c
 
-readtest : read.o
-	$(CROSS_COMPILE)$(CC) $(CFLAGS) -o readtest read.o $(LDFLAGS)
+read: read.o
+	$(CC) $(CFLAGS) read.o -o read -lgpiod
+clean:
+	rm -f *.o
+	rm -f read
 
-writetest : write.o
-	$(CROSS_COMPILE)$(CC) $(CFLAGS) -o writetest write.o $(LDFLAGS)
-
-read.o : read.c
-	$(CROSS_COMPILE)$(CC) $(CFLAGS) -c read.c $(LDFLAGS)
-
-write.o : write.c
-	$(CROSS_COMPILE)$(CC) $(CFLAGS) -c write.c $(LDFLAGS)
-
-clean :
-	rm -f readtest writetest *.o
