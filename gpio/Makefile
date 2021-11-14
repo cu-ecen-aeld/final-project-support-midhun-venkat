@@ -9,7 +9,7 @@ ifeq ($(INCLUDES),)
 	INCLUDES = -I/
 endif
 
-all: read write
+all: read write writehigh
 
 read.o: read.c
 	$(CC) $(CFLAGS) -c read.c
@@ -23,7 +23,13 @@ write.o: write.c
 write: write.o
 	$(CC) $(CFLAGS) write.o -o write -lgpiod
 
+writehigh.o: writehigh.c
+	$(CC) $(CFLAGS) -c writehigh.c
+
+writehigh: writehigh.o
+	$(CC) $(CFLAGS) writehigh.o -o writehigh -lgpiod
+
 clean:
 	rm -f *.o
-	rm -f read write
+	rm -f read write writehigh
 
