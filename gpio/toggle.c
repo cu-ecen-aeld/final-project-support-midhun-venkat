@@ -1,6 +1,7 @@
 /*********************************************************
  *
  *  toggle.c - Test file to check toggling of a gpio pin given as parameter
+ *  Modified: to take any gpio as a parmater while executing the program
  *  
  ********************************************************/
 

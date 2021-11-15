@@ -1,7 +1,7 @@
 /*********************************************************
  *
  *  Gpio_read.c - Test file to check working of lgpiod lib
- *  
+ *  Modified: to take any gpio as a parmater while executing the program  
  *  Reference - https://ostconf.com/system/attachments/
  *  files/000/001/532/original/
  *  Linux_Piter_2018_-_New_GPIO_interface_for_linux_userspace.pdf?1541021776
@@ -11,14 +11,27 @@
 #include <stdio.h>
 #include <gpiod.h>
 
-#define GPIO_PIN    17
+//#define GPIO_PIN    17
 
 struct gpiod_chip *chip;
 struct gpiod_line *line;
 int rv, value;
+int GPIO_PIN;
 
-int main()
+int main(int argc, char* argv[])
 {
+
+    char *p;
+    long num;
+    if(argc > 2 || argc < 2)
+    {
+	printf("invalid arguments: Argument should be pin number\n");
+	return 0;
+    }
+    num = strtol(argv[1], &p, 10);
+    GPIO_PIN = num;
+    printf("GPIO Pin selected is %d\n", GPIO_PIN);
+    
     chip= gpiod_chip_open("/dev/gpiochip0");
 
     if (!chip)

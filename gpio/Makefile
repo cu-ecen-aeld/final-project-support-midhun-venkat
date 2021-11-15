@@ -9,7 +9,7 @@ ifeq ($(INCLUDES),)
 	INCLUDES = -I/
 endif
 
-all: read write writehigh toggle
+all: read writelow writehigh toggle
 
 read.o: read.c
 	$(CC) $(CFLAGS) -c read.c
@@ -17,11 +17,11 @@ read.o: read.c
 read: read.o
 	$(CC) $(CFLAGS) read.o -o read -lgpiod
 
-write.o: write.c
-	$(CC) $(CFLAGS) -c write.c
+writelow.o: writelow.c
+	$(CC) $(CFLAGS) -c writelow.c
 
-write: write.o
-	$(CC) $(CFLAGS) write.o -o write -lgpiod
+writelow: writelow.o
+	$(CC) $(CFLAGS) writelow.o -o writelow -lgpiod
 
 writehigh.o: writehigh.c
 	$(CC) $(CFLAGS) -c writehigh.c
@@ -37,5 +37,5 @@ toggle: toggle.o
 
 clean:
 	rm -f *.o
-	rm -f read write writehigh toggle
+	rm -f read writelow writehigh toggle
 
