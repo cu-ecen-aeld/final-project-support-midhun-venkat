@@ -9,7 +9,7 @@ ifeq ($(INCLUDES),)
 	INCLUDES = -I/
 endif
 
-all: read writelow writehigh toggle
+all: read writelow writehigh toggle lcd
 
 read.o: read.c
 	$(CC) $(CFLAGS) -c read.c
@@ -35,7 +35,13 @@ toggle.o: toggle.c
 toggle: toggle.o
 	$(CC) $(CFLAGS) toggle.o -o toggle -lgpiod
 
+lcd.o: lcd.c
+	$(CC) $(CFLAGS) -c lcd.c
+
+lcd: lcd.o
+	$(CC) $(CFLAGS) lcd.o -o lcd -lgpiod
+
 clean:
 	rm -f *.o
-	rm -f read writelow writehigh toggle
+	rm -f read writelow writehigh toggle lcd
 
