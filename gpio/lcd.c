@@ -40,9 +40,9 @@ int gpio_write(int gpio_pin, int value)
 	     return -1;
     	}
 
-	gpiod_line_set_value(line, value); // set high
-	printf("GPIO%d value is set to 1\n", gpio_pin);
-	sleep(1);
+	gpiod_line_set_value(line, value); 
+	printf("GPIO%d value is set to %d\n", gpio_pin, value);
+	//sleep(1);
 	gpiod_chip_close(chip);
 
 	return 0;
@@ -84,8 +84,10 @@ int gpio_read(int gpio_pin)
 
 void pulseEnable ()
 {
+   printf("Pulse Enable high\n");
    gpio_write(LCD_E, HIGH) ; 
    usleep(0.5); // 0.5 useconds - enable pulse must be > 450ns
+   printf("Pulse Enable low\n");
    gpio_write(LCD_E, LOW) ; 
 }
 
@@ -139,12 +141,14 @@ void lcd_init()
 int main (int argc, char *argv []) 
 {
   lcd_init();
-  
+  printf("Initialization Done\n");
   SetChrMode(); 
-  if (argc>1) 
-     lcd_text(argv[1]);
-  else 
-     lcd_text("hello world!");
+  printf("Writing Text\n");
+  lcd_text("hello world");
+  //if (argc>1) 
+     //lcd_text(argv[1]);
+  //else 
+     //lcd_text("hello world!");
 	 
   return 0 ;
 }
