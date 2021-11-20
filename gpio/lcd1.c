@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 //#include <lcd.h>
-#include <wiringPi.h>
+#include "wiringPi.h"
 
 #define LCD_E 23
 #define LCD_RS 22
