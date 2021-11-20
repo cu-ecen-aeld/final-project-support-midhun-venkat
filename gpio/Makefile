@@ -9,7 +9,7 @@ ifeq ($(INCLUDES),)
 	INCLUDES = -I/
 endif
 
-all: read writelow writehigh toggle lcd
+all: read writelow writehigh toggle lcd lcd1
 
 read.o: read.c
 	$(CC) $(CFLAGS) -c read.c
@@ -41,7 +41,18 @@ lcd.o: lcd.c
 lcd: lcd.o
 	$(CC) $(CFLAGS) lcd.o -o lcd -lgpiod
 
+
+lcd1.o: lcd1.c
+	$(CC) $(CFLAGS) -c lcd1.c
+
+lcd1: lcd1.o wiringPi.o
+	$(CC) $(CFLAGS) lcd1.o wiringPi.o -o lcd1 -lgpiod
+
+#lcd1: lcd1.o wiringPi.o
+#	$(CC) $(CFLAGS) -c -o lcd1.o wiringPi.o -lgpiod
+
+
 clean:
 	rm -f *.o
-	rm -f read writelow writehigh toggle lcd
+	rm -f read writelow writehigh toggle lcd lcd1
 
