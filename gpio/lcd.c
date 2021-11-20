@@ -18,6 +18,14 @@ struct gpiod_line *line;
 
 int gpio_write(int gpio_pin, int value)
 {
+	if(value >= 1)
+	{
+		value = 1;
+	}
+	else
+	{
+		value = 0;
+	}
 	int rv;
 	chip= gpiod_chip_open("/dev/gpiochip0");
 
