@@ -1,11 +1,10 @@
 /*
- * lcd.c:
- *	  Simple program to send a string to the LCD 
+ * Test Code directly taken from internet (No changes made)
+ *	 
  */
 
 #include <stdio.h>
 #include <stdlib.h>
-//#include <lcd.h>
 #include "wiringPi.h"
 
 #define LCD_E 23
@@ -78,12 +77,12 @@ void lcd_init()
    delay(3);        // clear screen is slow!
 }
 
-//int print_on_lcd(char *str) 
+ 
 int main() 
 {
   lcd_init();
   
   SetChrMode(); 
-  lcd_text("Hi girls");
+  lcd_text("Hello World");
   return 0 ;
 }
