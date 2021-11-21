@@ -46,7 +46,7 @@ int i, x, y;
 		nokiaSetPixel(83, y, 1);
 	}
 	usleep(3000000);
-	for (i=0; i<10000; i++)
+	/*for (i=0; i<10000; i++)
 	{
 		x = rand() & 0x7f;
 		y = rand() & 0x3f;
@@ -63,7 +63,7 @@ int i, x, y;
 			}
 		}
 		nokiaSetPixel(x, y, 1);	
-	}
+	}*/
 	
 	printf("Attempting to write a string\n");
 	for(int i = 0 ; i < 100 ; i++)
