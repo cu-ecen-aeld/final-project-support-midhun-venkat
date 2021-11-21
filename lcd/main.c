@@ -65,6 +65,13 @@ int i, x, y;
 		nokiaSetPixel(x, y, 1);	
 	}
 	
+	printf("Attempting to write a string\n");
+	for(int i = 0 ; i < 100 ; i++)
+	{
+		nokiaWriteString(2, 1, "Testing", FONT_NORMAL);
+		usleep(500*1000);
+	}
+	
 	
 	
 	usleep(4000000);
