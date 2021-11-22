@@ -35,7 +35,7 @@ int i, x, y;
 	
 	
 	// draw a box around the whole display
-	for (x=0; x<84; x++)
+	/*for (x=0; x<84; x++)
 	{
 		nokiaSetPixel(x, 0, 1);
 		nokiaSetPixel(x, 47, 1);
@@ -44,7 +44,7 @@ int i, x, y;
 	{
 		nokiaSetPixel(0, y, 1);
 		nokiaSetPixel(83, y, 1);
-	}
+	}*/
 	usleep(3000000);
 	/*for (i=0; i<10000; i++)
 	{
