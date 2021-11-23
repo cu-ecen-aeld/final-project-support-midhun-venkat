@@ -42,6 +42,9 @@ int main()
 {
 	int sockfd;
 	struct sockaddr_in servaddr;
+	
+	//lcd_init
+	 lcd_init();
 
 	// socket create and varification
 	sockfd = socket(AF_INET, SOCK_STREAM, 0);
