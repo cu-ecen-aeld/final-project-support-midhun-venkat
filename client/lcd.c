@@ -90,16 +90,16 @@ void lcd_clear()
 void lcd_print(char *msg) 
 {
   SetCmdMode();    // set for commands
-  delay(2000);
+  delay(2);
   lcd_byte(0x01);  //Clear screen
-  delay(2000);
+  delay(3);
   lcd_byte(0x02);
-  delay(2000);
+  delay(3;
   lcd_byte(0x80);  // set home loc
-  delay(2000);
+  delay(3);
   SetChrMode(); 
   lcd_text(msg);
-  delay(5000);
+  delay(5);
 }
  
 /*int main() 
