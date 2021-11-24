@@ -726,7 +726,7 @@ int main(int argc, char*argv[])
 		printf("\n\rFrom Server :");
 		read(socket_fd, buff, sizeof(buff));
 		printf("%s",buff); 
-  		lcd_print("Temp is "+ buff);
+  		lcd_print('Temp is '+ buff);
 	}
 	
 	close_all();
