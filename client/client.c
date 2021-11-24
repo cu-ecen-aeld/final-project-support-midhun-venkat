@@ -719,13 +719,15 @@ int main(int argc, char*argv[])
     		}
 
 	}*/
-	while(!stop)
+	char buff[80] = {'\0'};
+	while(1)
 	{
-		char buff[80];
+		printf("\n\rFrom Server :");
 		read(socket_fd, buff, sizeof(buff));
-		printf("From Server : %s", buff);
+		printf("%s",buff);
 		SetChrMode(); 
   		lcd_text(buff);
+  		lcd_text("Hi");
 	}
 	
 	close_all();
