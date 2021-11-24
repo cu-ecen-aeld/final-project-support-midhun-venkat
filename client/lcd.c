@@ -79,6 +79,13 @@ void lcd_init()
    printf("Entered LCD Init\n");
 }
 
+void lcd_clear()
+{
+   SetCmdMode();
+   lcd_byte(0x01);  // clear screen
+   delay(3);        // clear screen is slow!
+}
+
  
 /*int main() 
 {
