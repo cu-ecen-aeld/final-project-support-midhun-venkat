@@ -720,18 +720,14 @@ int main(int argc, char*argv[])
 
 	}*/
 	lcd_init();
-	SetChrMode();
-	lcd_text("Hi");
-	lcd_clear();
+	lcd_print("Hi");
 	char buff[80] = {'\0'};
 	while(1)
 	{
-		lcd_clear();
 		printf("\n\rFrom Server :");
 		read(socket_fd, buff, sizeof(buff));
-		printf("%s",buff);
-		SetChrMode(); 
-  		lcd_text(buff);
+		printf("%s",buff); 
+  		lcd_print(buff);
 	}
 	
 	close_all();

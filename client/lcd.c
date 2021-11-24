@@ -86,6 +86,21 @@ void lcd_clear()
    delay(3);        // clear screen is slow!
 }
 
+
+void lcd_print(char *msg) 
+{
+  SetCmdMode();    // set for commands
+  delay(2000);
+  lcd_byte(0x01);  //Clear screen
+  delay(2000);
+  lcd_byte(0x02);
+  delay(2000);
+  lcd_byte(0x80);  // set home loc
+  delay(2000);
+  SetChrMode(); 
+  lcd_text(msg);
+  delay(5000);
+}
  
 /*int main() 
 {
