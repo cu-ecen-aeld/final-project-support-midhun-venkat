@@ -98,6 +98,7 @@ void lcd_print(char *msg)
   lcd_byte(0x80);  // set home loc
   delay(3);
   SetChrMode(); 
+  lcd_text("Temp is ");
   lcd_text(msg);
   delay(5);
 }
