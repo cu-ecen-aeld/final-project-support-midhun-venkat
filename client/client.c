@@ -720,14 +720,13 @@ int main(int argc, char*argv[])
 
 	}*/
 	lcd_init();
-	lcd_print("Hi");
 	char buff[80] = {'\0'};
 	while(1)
 	{
 		printf("\n\rFrom Server :");
 		read(socket_fd, buff, sizeof(buff));
 		printf("%s",buff); 
-  		lcd_print(buff);
+  		lcd_print("Temp is "+ buff);
 	}
 	
 	close_all();
