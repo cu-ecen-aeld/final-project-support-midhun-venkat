@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall
 LDFLAGS = -lrt -lgpiod -pthread
 OBJFILES = wiringPi.o softTone.o softPwm.o lcd.o client.o
-TARGET = test_lcd
+TARGET = test_client_integrated
 all: $(TARGET)
 $(TARGET): $(OBJFILES)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJFILES) $(LDFLAGS)
