@@ -94,7 +94,7 @@ void lcd_print(char *msg)
   lcd_byte(0x01);  //Clear screen
   delay(3);
   lcd_byte(0x02);
-  delay(3;
+  delay(3);
   lcd_byte(0x80);  // set home loc
   delay(3);
   SetChrMode(); 
