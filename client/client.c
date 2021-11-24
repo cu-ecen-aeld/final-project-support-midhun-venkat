@@ -719,6 +719,9 @@ int main(int argc, char*argv[])
     		}
 
 	}*/
+	lcd_init();
+	SetChrMode();
+	lcd_text("Hi");
 	char buff[80] = {'\0'};
 	while(1)
 	{
@@ -727,7 +730,6 @@ int main(int argc, char*argv[])
 		printf("%s",buff);
 		SetChrMode(); 
   		lcd_text(buff);
-  		lcd_text("Hi");
 	}
 	
 	close_all();

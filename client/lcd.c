@@ -76,6 +76,7 @@ void lcd_init()
    lcd_byte(0x0C); // display on, cursor off, blink off
    lcd_byte(0x01);  // clear screen
    delay(3);        // clear screen is slow!
+   printf("Entered LCD Init\n");
 }
 
  

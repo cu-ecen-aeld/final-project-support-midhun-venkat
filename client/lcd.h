@@ -2,7 +2,7 @@
 #define __LCD_H__
 
 
-void pulseEnable ();
+void pulseEnable();
 void lcd_byte(char bits);
 void SetCmdMode();
 void SetChrMode();
