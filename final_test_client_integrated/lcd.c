@@ -1,5 +1,5 @@
 /*
- * Test Code directly taken from internet (No changes made)
+ * Code referred from internet
  * Added lcd_print() function - to print a message on lcd
  *	 
  */
