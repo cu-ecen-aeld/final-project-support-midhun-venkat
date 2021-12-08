@@ -646,7 +646,11 @@ int main(int argc, char*argv[])
 		printf("%s",buff); 
   		lcd_print(buff);
   		tempvalue_decimal = atoi(buff);
-  		if(tempvalue_decimal > TEMP_THRESHOLD)
+  		printf("atoi value is %d\n\r",tempvalue_decimal);
+  		int decimal = (buff[0] - 0x30) * 10 + (buff[1] - 0x30);
+  		printf("decimal value is %d\n\r",decimal);
+  		
+  		if(tempvalue_decimal >= TEMP_THRESHOLD)
   			digitalWrite(GPIO5, HIGH);
 		else
   			digitalWrite(GPIO5, LOW);
