@@ -9,16 +9,16 @@ ifeq ($(INCLUDES),)
 	INCLUDES = -I/
 endif
 
-all: lcd_lib 
+all: led 
 
 
-lcd.o: lcd.c
-	$(CC) $(CFLAGS) -c lcd.c
+led.o: led.c
+	$(CC) $(CFLAGS) -c led.c
 
-lcd_lib: lcd.o
-	$(CC) $(CFLAGS) lcd.o -o lcd_lib -lgpiod
+led: led.o
+	$(CC) $(CFLAGS) led.o -o led -lgpiod
 
 clean:
 	rm -f *.o
-	rm -f lcd_lib
+	rm -f led
 
