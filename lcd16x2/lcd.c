@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
+
 #define HIGH 1
 #define LOW 0
 
@@ -47,7 +48,7 @@ int main(int argc, char **argv)
   gpiod_line_set_value(lineD7,(0x33 & 0x80)) ;  
    //pulseEnable();
   gpiod_line_set_value(lineE, HIGH) ; 
-  usleep(0.5); // 0.5 useconds - enable pulse must be > 450ns
+  usleep(0.5*1000); // 0.5 useconds - enable pulse must be > 450ns
   gpiod_line_set_value(lineE, LOW) ; 
 
   gpiod_line_set_value(lineD4,(0x33 & 0x1)) ;  
@@ -56,7 +57,7 @@ int main(int argc, char **argv)
   gpiod_line_set_value(lineD7,(0x33 & 0x8)) ;  
    //pulseEnable(); 
   gpiod_line_set_value(lineE, HIGH) ; 
-  usleep(0.5); // 0.5 useconds - enable pulse must be > 450ns
+  usleep(0.5*1000); // 0.5 useconds - enable pulse must be > 450ns
   gpiod_line_set_value(lineE, LOW) ;
   
   // lcd_byte(0x32); // full bit mode
@@ -66,7 +67,7 @@ int main(int argc, char **argv)
   gpiod_line_set_value(lineD7,(0x32 & 0x80)) ;  
    //pulseEnable();
   gpiod_line_set_value(lineE, HIGH) ; 
-  usleep(0.5); // 0.5 useconds - enable pulse must be > 450ns
+  usleep(0.5*1000); // 0.5 useconds - enable pulse must be > 450ns
   gpiod_line_set_value(lineE, LOW) ; 
 
   gpiod_line_set_value(lineD4,(0x32 & 0x1)) ;  
@@ -75,7 +76,7 @@ int main(int argc, char **argv)
   gpiod_line_set_value(lineD7,(0x32 & 0x8)) ;  
    //pulseEnable(); 
   gpiod_line_set_value(lineE, HIGH) ; 
-  usleep(0.5); // 0.5 useconds - enable pulse must be > 450ns
+  usleep(0.5*1000); // 0.5 useconds - enable pulse must be > 450ns
   gpiod_line_set_value(lineE, LOW) ;
   
   // lcd_byte(0x28); 2 line mode
@@ -85,7 +86,7 @@ int main(int argc, char **argv)
   gpiod_line_set_value(lineD7,(0x28 & 0x80)) ;  
    //pulseEnable();
   gpiod_line_set_value(lineE, HIGH) ; 
-  usleep(0.5); // 0.5 useconds - enable pulse must be > 450ns
+  usleep(0.5*1000); // 0.5 useconds - enable pulse must be > 450ns
   gpiod_line_set_value(lineE, LOW) ; 
 
   gpiod_line_set_value(lineD4,(0x28 & 0x1)) ;  
@@ -94,7 +95,7 @@ int main(int argc, char **argv)
   gpiod_line_set_value(lineD7,(0x28 & 0x8)) ;  
    //pulseEnable(); 
   gpiod_line_set_value(lineE, HIGH) ; 
-  usleep(0.5); // 0.5 useconds - enable pulse must be > 450ns
+  usleep(0.5*1000); // 0.5 useconds - enable pulse must be > 450ns
   gpiod_line_set_value(lineE, LOW) ;
   
   // lcd_byte(0x0C); // display On, Cursor Off, Blink off
@@ -104,7 +105,7 @@ int main(int argc, char **argv)
   gpiod_line_set_value(lineD7,(0x0C & 0x80)) ;  
    //pulseEnable();
   gpiod_line_set_value(lineE, HIGH) ; 
-  usleep(0.5); // 0.5 useconds - enable pulse must be > 450ns
+  usleep(0.5*1000); // 0.5 useconds - enable pulse must be > 450ns
   gpiod_line_set_value(lineE, LOW) ; 
 
   gpiod_line_set_value(lineD4,(0x0C & 0x1)) ;  
@@ -113,7 +114,7 @@ int main(int argc, char **argv)
   gpiod_line_set_value(lineD7,(0x0C & 0x8)) ;  
    //pulseEnable(); 
   gpiod_line_set_value(lineE, HIGH) ; 
-  usleep(0.5); // 0.5 useconds - enable pulse must be > 450ns
+  usleep(0.5*1000); // 0.5 useconds - enable pulse must be > 450ns
   gpiod_line_set_value(lineE, LOW) ;
   
   // lcd_byte(0x01); // clear screen
@@ -123,7 +124,7 @@ int main(int argc, char **argv)
   gpiod_line_set_value(lineD7,(0x01 & 0x80)) ;  
    //pulseEnable();
   gpiod_line_set_value(lineE, HIGH) ; 
-  usleep(0.5); // 0.5 useconds - enable pulse must be > 450ns
+  usleep(0.5*1000); // 0.5 useconds - enable pulse must be > 450ns
   gpiod_line_set_value(lineE, LOW) ; 
 
   gpiod_line_set_value(lineD4,(0x01 & 0x1)) ;  
@@ -132,10 +133,10 @@ int main(int argc, char **argv)
   gpiod_line_set_value(lineD7,(0x01 & 0x8)) ;  
    //pulseEnable(); 
   gpiod_line_set_value(lineE, HIGH) ; 
-  usleep(0.5); // 0.5 useconds - enable pulse must be > 450ns
+  usleep(0.5*1000); // 0.5 useconds - enable pulse must be > 450ns
   gpiod_line_set_value(lineE, LOW) ;
   
-  usleep(5); // wait for clearing the screen
+  usleep(5*1000); // wait for clearing the screen
   
   
   gpiod_line_set_value(lineRS, 1); // SetChrMode
@@ -148,7 +149,7 @@ int main(int argc, char **argv)
   gpiod_line_set_value(lineD7,('H' & 0x80)) ;  
    //pulseEnable();
   gpiod_line_set_value(lineE, HIGH) ; 
-  usleep(0.5); // 0.5 useconds - enable pulse must be > 450ns
+  usleep(0.5*1000); // 0.5 useconds - enable pulse must be > 450ns
   gpiod_line_set_value(lineE, LOW) ; 
 
   gpiod_line_set_value(lineD4,('H' & 0x1)) ;  
@@ -157,7 +158,7 @@ int main(int argc, char **argv)
   gpiod_line_set_value(lineD7,('H' & 0x8)) ;  
    //pulseEnable(); 
   gpiod_line_set_value(lineE, HIGH) ; 
-  usleep(0.5); // 0.5 useconds - enable pulse must be > 450ns
+  usleep(0.5*1000); // 0.5 useconds - enable pulse must be > 450ns
   gpiod_line_set_value(lineE, LOW) ;
   
   // print e
@@ -168,7 +169,7 @@ int main(int argc, char **argv)
   gpiod_line_set_value(lineD7,('e' & 0x80)) ;  
    //pulseEnable();
   gpiod_line_set_value(lineE, HIGH) ; 
-  usleep(0.5); // 0.5 useconds - enable pulse must be > 450ns
+  usleep(0.5*1000); // 0.5 useconds - enable pulse must be > 450ns
   gpiod_line_set_value(lineE, LOW) ; 
 
   gpiod_line_set_value(lineD4,('e' & 0x1)) ;  
@@ -177,7 +178,7 @@ int main(int argc, char **argv)
   gpiod_line_set_value(lineD7,('e' & 0x8)) ;  
    //pulseEnable(); 
   gpiod_line_set_value(lineE, HIGH) ; 
-  usleep(0.5); // 0.5 useconds - enable pulse must be > 450ns
+  usleep(0.5*1000); // 0.5 useconds - enable pulse must be > 450ns
   gpiod_line_set_value(lineE, LOW) ;
   
   // print l
@@ -188,7 +189,7 @@ int main(int argc, char **argv)
   gpiod_line_set_value(lineD7,(0x6c & 0x80)) ;  
    //pulseEnable();
   gpiod_line_set_value(lineE, HIGH) ; 
-  usleep(0.5); // 0.5 useconds - enable pulse must be > 450ns
+  usleep(0.5*1000); // 0.5 useconds - enable pulse must be > 450ns
   gpiod_line_set_value(lineE, LOW) ; 
 
   gpiod_line_set_value(lineD4,(0x6C & 0x1)) ;  
@@ -197,7 +198,7 @@ int main(int argc, char **argv)
   gpiod_line_set_value(lineD7,(0x6C & 0x8)) ;  
    //pulseEnable(); 
   gpiod_line_set_value(lineE, HIGH) ; 
-  usleep(0.5); // 0.5 useconds - enable pulse must be > 450ns
+  usleep(0.5*1000); // 0.5 useconds - enable pulse must be > 450ns
   gpiod_line_set_value(lineE, LOW) ;
   
   
@@ -209,7 +210,7 @@ int main(int argc, char **argv)
   gpiod_line_set_value(lineD7,(0x45 & 0x80)) ;  
    //pulseEnable();
   gpiod_line_set_value(lineE, HIGH) ; 
-  usleep(0.5); // 0.5 useconds - enable pulse must be > 450ns
+  usleep(0.5*1000); // 0.5 useconds - enable pulse must be > 450ns
   gpiod_line_set_value(lineE, LOW) ; 
 
   gpiod_line_set_value(lineD4,(0x45 & 0x1)) ;  
@@ -218,7 +219,7 @@ int main(int argc, char **argv)
   gpiod_line_set_value(lineD7,(0x45 & 0x8)) ;  
    //pulseEnable(); 
   gpiod_line_set_value(lineE, HIGH) ; 
-  usleep(0.5); // 0.5 useconds - enable pulse must be > 450ns
+  usleep(0.5*1000); // 0.5 useconds - enable pulse must be > 450ns
   gpiod_line_set_value(lineE, LOW) ;
   
 
