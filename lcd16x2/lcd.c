@@ -183,40 +183,60 @@ int main(int argc, char **argv)
   
   // print l
   // lcd_byte('l');
-  gpiod_line_set_value(lineD4,(0x6C & 0x10)) ;  
-  gpiod_line_set_value(lineD5,(0x6C & 0x20)) ;  
-  gpiod_line_set_value(lineD6,(0x6c & 0x40)) ;  
-  gpiod_line_set_value(lineD7,(0x6c & 0x80)) ;  
+  gpiod_line_set_value(lineD4,('l' & 0x10)) ;  
+  gpiod_line_set_value(lineD5,('l' & 0x20)) ;  
+  gpiod_line_set_value(lineD6,('l' & 0x40)) ;  
+  gpiod_line_set_value(lineD7,('l' & 0x80)) ;  
    //pulseEnable();
   gpiod_line_set_value(lineE, HIGH) ; 
   usleep(0.5*1000); // 0.5 useconds - enable pulse must be > 450ns
   gpiod_line_set_value(lineE, LOW) ; 
 
-  gpiod_line_set_value(lineD4,(0x6C & 0x1)) ;  
-  gpiod_line_set_value(lineD5,(0x6C & 0x2)) ;  
-  gpiod_line_set_value(lineD6,(0x6C & 0x4)) ;  
-  gpiod_line_set_value(lineD7,(0x6C & 0x8)) ;  
+  gpiod_line_set_value(lineD4,('l' & 0x1)) ;  
+  gpiod_line_set_value(lineD5,('l' & 0x2)) ;  
+  gpiod_line_set_value(lineD6,('l' & 0x4)) ;  
+  gpiod_line_set_value(lineD7,('l' & 0x8)) ;  
+   //pulseEnable(); 
+  gpiod_line_set_value(lineE, HIGH) ; 
+  usleep(0.5*1000); // 0.5 useconds - enable pulse must be > 450ns
+  gpiod_line_set_value(lineE, LOW) ;
+  
+  // print l
+  // lcd_byte('l');
+  gpiod_line_set_value(lineD4,('l' & 0x10)) ;  
+  gpiod_line_set_value(lineD5,('l' & 0x20)) ;  
+  gpiod_line_set_value(lineD6,('l' & 0x40)) ;  
+  gpiod_line_set_value(lineD7,('l' & 0x80)) ;  
+   //pulseEnable();
+  gpiod_line_set_value(lineE, HIGH) ; 
+  usleep(0.5*1000); // 0.5 useconds - enable pulse must be > 450ns
+  gpiod_line_set_value(lineE, LOW) ; 
+
+  gpiod_line_set_value(lineD4,('l' & 0x1)) ;  
+  gpiod_line_set_value(lineD5,('l' & 0x2)) ;  
+  gpiod_line_set_value(lineD6,('l' & 0x4)) ;  
+  gpiod_line_set_value(lineD7,('l' & 0x8)) ;  
    //pulseEnable(); 
   gpiod_line_set_value(lineE, HIGH) ; 
   usleep(0.5*1000); // 0.5 useconds - enable pulse must be > 450ns
   gpiod_line_set_value(lineE, LOW) ;
   
   
-  // print E
-  // lcd_byte('E');
-  gpiod_line_set_value(lineD4,(0x45 & 0x10)) ;  
-  gpiod_line_set_value(lineD5,(0x45 & 0x20)) ;  
-  gpiod_line_set_value(lineD6,(0x45 & 0x40)) ;  
-  gpiod_line_set_value(lineD7,(0x45 & 0x80)) ;  
+  // print o
+  // lcd_byte('o');
+  gpiod_line_set_value(lineD4,('o' & 0x10)) ;  
+  gpiod_line_set_value(lineD5,('o' & 0x20)) ;  
+  gpiod_line_set_value(lineD6,('o' & 0x40)) ;  
+  gpiod_line_set_value(lineD7,('o' & 0x80)) ;  
    //pulseEnable();
   gpiod_line_set_value(lineE, HIGH) ; 
   usleep(0.5*1000); // 0.5 useconds - enable pulse must be > 450ns
   gpiod_line_set_value(lineE, LOW) ; 
 
-  gpiod_line_set_value(lineD4,(0x45 & 0x1)) ;  
-  gpiod_line_set_value(lineD5,(0x45 & 0x2)) ;  
-  gpiod_line_set_value(lineD6,(0x45 & 0x4)) ;  
-  gpiod_line_set_value(lineD7,(0x45 & 0x8)) ;  
+  gpiod_line_set_value(lineD4,('o' & 0x1)) ;  
+  gpiod_line_set_value(lineD5,('o' & 0x2)) ;  
+  gpiod_line_set_value(lineD6,('o' & 0x4)) ;  
+  gpiod_line_set_value(lineD7,('o' & 0x8)) ;  
    //pulseEnable(); 
   gpiod_line_set_value(lineE, HIGH) ; 
   usleep(0.5*1000); // 0.5 useconds - enable pulse must be > 450ns

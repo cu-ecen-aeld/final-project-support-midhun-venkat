@@ -1,6 +1,7 @@
 #ifndef __LCD_H__
 #define __LCD_H__
 
+#include "wiringPi.h"
 
 void pulseEnable();
 void lcd_byte(char bits);

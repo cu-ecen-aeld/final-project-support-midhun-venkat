@@ -6,7 +6,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "wiringPi.h"
 #include "lcd.h"
 
 #define LCD_E 23
@@ -68,6 +67,8 @@ void lcd_init()
    pinMode (LCD_D5, OUTPUT);
    pinMode (LCD_D6, OUTPUT);
    pinMode (LCD_D7, OUTPUT);
+   
+   pinMode (5, OUTPUT); // added a led gpio for indication
    
    // initialise LCD
    SetCmdMode(); // set for commands

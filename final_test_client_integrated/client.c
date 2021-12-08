@@ -30,6 +30,9 @@
 #endif
 
 
+#define GPIO5 5
+#define TEMP_THRESHOLD 27
+
 int socket_fd, client_fd, write_fd;
 int stop = 0;
 int total_bytes = 0;
@@ -432,6 +435,7 @@ int main(int argc, char*argv[])
 	int enable_daemon = 0;
 	sigset_t signal_set;
 	struct sockaddr_in servaddr;
+	int tempvalue_decimal;
 
 	openlog("aesd-socket-log", LOG_PID, LOG_USER);
         
@@ -548,8 +552,6 @@ int main(int argc, char*argv[])
         
 	//initialize mutex
 	/*rc = pthread_mutex_init(&main_mutex,NULL);
-	if(rc != 0)
-	{
 		printf("error in initializing the mutex\n");
 		close_all();
 		exit(EXIT_FAILURE);
@@ -643,6 +645,12 @@ int main(int argc, char*argv[])
 		read(socket_fd, buff, sizeof(buff));
 		printf("%s",buff); 
   		lcd_print(buff);
+  		tempvalue_decimal = atoi(buff);
+  		if(tempvalue_decimal > TEMP_THRESHOLD)
+  			digitalWrite(GPIO5, HIGH);
+		else
+  			digitalWrite(GPIO5, LOW);
+  			
 	}
 	
 	close_all();
