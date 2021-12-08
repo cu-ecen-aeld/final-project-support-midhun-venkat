@@ -179,6 +179,6 @@ int main()
   lcd_init();
   
   SetChrMode(); 
-  lcd_text("Hello World         AESD PROJECT");
+  lcd_text("Hello World!");
   return 0 ;
 }
