@@ -31,7 +31,7 @@
 
 
 #define GPIO5 5
-#define TEMP_THRESHOLD 27
+#define TEMP_THRESHOLD 26
 
 int socket_fd, client_fd, write_fd;
 int stop = 0;
@@ -646,15 +646,16 @@ int main(int argc, char*argv[])
 		printf("%s",buff); 
   		lcd_print(buff);
   		tempvalue_decimal = atoi(buff);
-  		printf("atoi value is %d\n\r",tempvalue_decimal);
-  		int decimal = (buff[0] - 0x30) * 10 + (buff[1] - 0x30);
-  		printf("decimal value is %d\n\r",decimal);
   		
   		if(tempvalue_decimal >= TEMP_THRESHOLD)
-  			digitalWrite(GPIO5, HIGH);
+  		{
+  			led(1);
+  			printf("\n\r Entered");
+  		}
 		else
-  			digitalWrite(GPIO5, LOW);
-  			
+		{
+			led(0);
+  		}	
 	}
 	
 	close_all();

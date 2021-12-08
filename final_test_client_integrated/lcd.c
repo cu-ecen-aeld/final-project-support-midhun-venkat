@@ -69,7 +69,7 @@ void lcd_init()
    pinMode (LCD_D7, OUTPUT);
    
    pinMode (5, OUTPUT); // added a led gpio for indication
-   
+   pinMode (13, OUTPUT);
    // initialise LCD
    SetCmdMode(); // set for commands
    lcd_byte(0x33); // full init 
@@ -103,6 +103,20 @@ void lcd_print(char *msg)
   lcd_text("Temp is ");
   lcd_text(msg);
   delay(5);
+}
+
+void led(int enable)
+{
+	if(enable == 1)
+	{
+		digitalWrite(13, 1);
+		digitalWrite(5,1);
+	}	
+	else
+	{
+		digitalWrite(13,0);
+		digitalWrite(5,0);
+	}	
 }
  
 /*int main() 
