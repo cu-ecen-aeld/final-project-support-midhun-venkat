@@ -14,6 +14,7 @@
 #define LCD_D5 25
 #define LCD_D6 8
 #define LCD_D7 7
+#define GPIO_LED 5
 
 void pulseEnable ()
 {
@@ -68,8 +69,7 @@ void lcd_init()
    pinMode (LCD_D6, OUTPUT);
    pinMode (LCD_D7, OUTPUT);
    
-   pinMode (5, OUTPUT); // added a led gpio for indication
-   pinMode (13, OUTPUT);
+   pinMode (GPIO_LED, OUTPUT); // added a led gpio for indication
    // initialise LCD
    SetCmdMode(); // set for commands
    lcd_byte(0x33); // full init 
@@ -105,19 +105,7 @@ void lcd_print(char *msg)
   delay(5);
 }
 
-void led(int enable)
-{
-	if(enable == 1)
-	{
-		digitalWrite(13, 1);
-		digitalWrite(5,1);
-	}	
-	else
-	{
-		digitalWrite(13,0);
-		digitalWrite(5,0);
-	}	
-}
+
  
 /*int main() 
 {

@@ -11,7 +11,7 @@ void lcd_text(char *s);
 void lcd_init();
 void lcd_clear();
 void lcd_print(char *msg);
-void led(int enable);
+
 
 
 

@@ -642,20 +642,20 @@ int main(int argc, char*argv[])
 	while(1)
 	{
 		printf("\n\rFrom Server :");
-		read(socket_fd, buff, sizeof(buff));
+		rc = read(socket_fd, buff, sizeof(buff));
+		if(rc == -1)
+		{
+			break;
+		}
 		printf("%s",buff); 
   		lcd_print(buff);
-  		tempvalue_decimal = atoi(buff);
+  		tempvalue_decimal = atoi(buff); // convert string to decimal
   		
   		if(tempvalue_decimal >= TEMP_THRESHOLD)
-  		{
-  			led(1);
-  			printf("\n\r Entered");
-  		}
+  			digitalWrite(GPIO5, 1); // set led
 		else
-		{
-			led(0);
-  		}	
+			digitalWrite(GPIO5, 0); // clear
+		
 	}
 	
 	close_all();
