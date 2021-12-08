@@ -10,13 +10,12 @@ int main(int argc, char **argv)
 {
   const char *chipname = "gpiochip0";
   struct gpiod_chip *chip;
-  struct gpiod_line *lineE;    // Red LED
-  struct gpiod_line *lineRS;  // Green LED
-  struct gpiod_line *lineD4; // Yellow LED
-  struct gpiod_line *lineD5; // Pushbutton
-  struct gpiod_line *lineD6; // Yellow LED
-  struct gpiod_line *lineD7; // Pushbutton
-  int i, val;
+  struct gpiod_line *lineE;    // Enable
+  struct gpiod_line *lineRS;   // RS
+  struct gpiod_line *lineD4;   // D4
+  struct gpiod_line *lineD5;   // D5
+  struct gpiod_line *lineD6;   // D6
+  struct gpiod_line *lineD7;   // D7
 
   // Open GPIO chip
   chip = gpiod_chip_open_by_name(chipname);

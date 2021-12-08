@@ -49,7 +49,7 @@ int gpio_write(int gpio_pin, int value)
      return -1; 
 	}
 	
-	rv = gpiod_line_request_output(line, "example", 1); // default value
+	rv = gpiod_line_request_output(line, "example", 0); // default value
 
 	if (rv) 
 	{
@@ -99,7 +99,7 @@ int gpio_read(int gpio_pin)
 void pulseEnable ()
 {
    gpio_write (LCD_E, HIGH) ; 
-   usleep(500); //  1/2 microsecond pause - enable pulse must be > 450ns
+   usleep(0.5*1000); //  1/2 microsecond pause - enable pulse must be > 450ns
    gpio_write (LCD_E, LOW) ; 
 }
 
@@ -147,31 +147,31 @@ void lcd_init()
    lcd_byte(0x28); // 2 line mode
    lcd_byte(0x0C); // display on, cursor off, blink off
    lcd_byte(0x01);  // clear screen
-   usleep(3000);        // clear screen is slow!
+   usleep(5*1000);        // clear screen is slow!
 }
 
 void lcd_clear()
 {
    SetCmdMode();
    lcd_byte(0x01);  // clear screen
-   usleep(3000);        // clear screen is slow!
+   usleep(5*1000);        // clear screen is slow!
 }
 
 
 void lcd_print(char *msg) 
 {
   SetCmdMode();    // set for commands
-  usleep(2000);
+  usleep(0.2*1000);
   lcd_byte(0x01);  //Clear screen
-  usleep(3000);
+  usleep(0.3*1000);
   lcd_byte(0x02);
-  usleep(3000);
+  usleep(0.3*1000);
   lcd_byte(0x80);  // set home loc
-  usleep(3000);
+  usleep(0.3*1000);
   SetChrMode(); 
   lcd_text("Temp is ");
   lcd_text(msg);
-  usleep(5000);
+  usleep(5*1000);
 }
  
 int main() 
